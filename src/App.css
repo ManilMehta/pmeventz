@@ -101,7 +101,8 @@ body, html, #root, .App {
 
 .center-logo {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align both the logo and text */
   justify-content: center;
   height: 100vh;
 }
@@ -109,6 +110,41 @@ body, html, #root, .App {
 .central-logo {
   height: 400px;
   width: auto;
+  margin-bottom: 30px; 
+}
+
+.typewriter-container {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.typewriter {
+  display: inline-block;
+  width: 160px; /* Ensure this matches the width of your words */
+  text-align: left;
+  position: relative;
+}
+
+.typewriter-word {
+  color: #ffd700; /* Custom color for typewritten words */
+  font-weight: bold;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  font-size: inherit;
+  font-weight: normal;
+  color: #ffd700; /* Match cursor color to the word color */
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .section {
@@ -171,4 +207,56 @@ body, html, #root, .App {
 .gallery-arrow:hover {
   background: rgba(255, 255, 255, 0.8);
   color: black;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 20px 20px; /* Add extra padding at the bottom for spacing */
+  min-height: 100vh;
+  background-color: black;
+}
+
+.contact-section h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: white; /* Ensure consistent text color */
+}
+
+.contact-textarea {
+  width: 70%;
+  max-width: 600px;
+  height: 200px;
+  background-color: #d7d6dc;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 20px 0; /* Add spacing above and below */
+  font-size: 16px;
+  resize: none; /* Disable resizing */
+}
+
+.contact-button {
+  background-color: #ffd700; /* Add the same yellow color */
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 30px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+  background-color: #e5c200; /* Slightly darker yellow on hover */
+  transform: scale(1.05); /* Add a hover effect */
+}
+
+.contact-button:active {
+  transform: scale(0.95); /* Add an effect for when the button is clicked */
 }

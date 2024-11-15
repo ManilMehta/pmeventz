@@ -17,6 +17,47 @@ function StarryBackground() {
     return <div className="starry-background">{stars}</div>;
 }
 
+function TypewriterCycle({ baseText, words }) {
+    const [displayedText, setDisplayedText] = useState(baseText);
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [typedWord, setTypedWord] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const word = words[currentWordIndex];
+        let charIndex = isDeleting ? typedWord.length - 1 : typedWord.length;
+
+        const type = () => {
+            if (!isDeleting && charIndex < word.length) {
+                setTypedWord(word.substring(0, charIndex + 1));
+                charIndex++;
+            } else if (isDeleting && charIndex >= 0) {
+                setTypedWord(word.substring(0, charIndex));
+                charIndex--;
+            } else if (!isDeleting && charIndex === word.length) {
+                setTimeout(() => setIsDeleting(true), 1000);
+            } else if (isDeleting && charIndex < 0) {
+                setIsDeleting(false);
+                setCurrentWordIndex((prev) => (prev + 1) % words.length);
+            }
+        };
+
+        const typingInterval = setTimeout(type, isDeleting ? 100 : 150);
+
+        return () => clearTimeout(typingInterval);
+    }, [typedWord, isDeleting, currentWordIndex, words]);
+
+    return (
+        <span>
+            {baseText}{" "}
+            <span className="typewriter">
+                <span className="typewriter-word">{typedWord}</span>
+                <span className="typewriter-cursor">|</span>
+            </span>
+        </span>
+    );
+}
+
 function Gallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -67,6 +108,16 @@ function Gallery() {
     );
 }
 
+function ContactSection() {
+    return (
+        <section id="contact" className="contact-section">
+            <h2>Contact Us</h2>
+            <textarea className="contact-textarea" placeholder="Write your message here..." />
+            <button className="contact-button">Contact</button>
+        </section>
+    );
+}
+
 function App() {
     const scrollToSection = (sectionId) => {
         document.getElementById(sectionId).scrollIntoView({
@@ -86,13 +137,21 @@ function App() {
                         <button onClick={() => scrollToSection('tournaments')}>Tournaments</button>
                         <button onClick={() => scrollToSection('gallery')}>Gallery</button>
                         <button onClick={() => scrollToSection('about-us')}>About Us</button>
+                        <button onClick={() => scrollToSection('contact')}>Contact</button>
                     </nav>
                 </div>
             </header>
 
             <div className="center-logo">
                 <img src={logo} alt="PM Events Central Logo" className="central-logo" draggable={"false"} />
+                <div className="typewriter-container">
+                    <span>
+                        Creating unforgettable <span className="typewriter"><TypewriterCycle baseText="" words={["tournaments", "events", "bashes"]} /></span>
+                    </span>
+                </div>
             </div>
+
+            
 
             <section id="events" className="section">Events Section</section>
             <section id="tournaments" className="section">Tournaments Section</section>
@@ -100,6 +159,7 @@ function App() {
                 <Gallery />
             </section>
             <section id="about-us" className="section">About Us Section</section>
+            <ContactSection />
         </div>
     );
 }
