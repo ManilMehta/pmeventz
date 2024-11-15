@@ -153,47 +153,71 @@ body, html, #root, .App {
   margin-top: 70px;
 }
 
-.gallery {
+.gallery-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: black;
-  padding: 50px 0;
-  overflow: hidden;
+  justify-content: center;
   position: relative;
+  width: 100%;
+  height: 650px; 
+  background-color: black;
+  overflow: hidden;
 }
 
-.gallery-images {
+.gallery-content {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  opacity: 0; 
+  transition: opacity 1s ease-in-out; 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.gallery-slide.active {
+  opacity: 1; 
+  z-index: 2;
+}
+
+.gallery-slide.inactive {
+  opacity: 0; 
+  z-index: 1; 
 }
 
 .gallery-image {
-  flex: 0 0 100%;
   width: 100%;
-  object-fit: cover;
-  opacity: 0.5;
-  filter: blur(4px);
-  transition: opacity 0.5s ease, filter 0.5s ease;
-}
-
-.gallery-image.active {
-  opacity: 1;
-  filter: none;
+  height: auto;
+  object-fit: contain;
 }
 
 .gallery-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  font-size: 30px;
   color: white;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  padding: 10px 20px;
-  font-size: 24px;
   cursor: pointer;
-  z-index: 1;
-  transition: background 0.3s ease;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
 .gallery-arrow.left {
@@ -204,10 +228,28 @@ body, html, #root, .App {
   right: 10px;
 }
 
-.gallery-arrow:hover {
-  background: rgba(255, 255, 255, 0.8);
-  color: black;
+.gallery-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
 }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #ffd700;
+}
+
 
 .contact-section {
   display: flex;
@@ -215,15 +257,15 @@ body, html, #root, .App {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px 20px 20px; /* Add extra padding at the bottom for spacing */
+  padding: 20px 20px 20px; 
   min-height: 100vh;
   background-color: black;
 }
 
 .contact-section h2 {
-  font-size: 50px;
+  font-size: 35px;
   margin-bottom: 20px;
-  color: white; /* Ensure consistent text color */
+  color: white; 
 }
 
 .contact-textarea {
@@ -234,13 +276,13 @@ body, html, #root, .App {
   border-radius: 10px;
   border: none;
   padding: 10px;
-  margin: 20px 0; /* Add spacing above and below */
+  margin: 20px 0; 
   font-size: 16px;
-  resize: none; /* Disable resizing */
+  resize: none; 
 }
 
 .contact-button {
-  background-color: #ffd700; /* Add the same yellow color */
+  background-color: #ffd700; 
   color: black;
   font-size: 14px;
   font-weight: bold;
@@ -253,10 +295,10 @@ body, html, #root, .App {
 }
 
 .contact-button:hover {
-  background-color: #e5c200; /* Slightly darker yellow on hover */
-  transform: scale(1.05); /* Add a hover effect */
+  background-color: #e5c200; 
+  transform: scale(1.05); 
 }
 
 .contact-button:active {
-  transform: scale(0.95); /* Add an effect for when the button is clicked */
+  transform: scale(0.95); 
 }

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './pmevents.svg';
+import carasoul1 from './images/carasoul1.JPEG';
+import carasoul2 from './images/carasoul2.JPEG';
+import carasoul3 from './images/carasoul3.JPEG';
+import carasoul4 from './images/carasoul4.JPEG';
+import carasoul5 from './images/carasoul5.JPG';
+import carasoul6 from './images/carasoul6.JPG';
 
 function StarryBackground() {
     const stars = Array.from({ length: 200 }, (_, i) => (
@@ -61,13 +67,8 @@ function TypewriterCycle({ baseText, words }) {
 function Gallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const images = [
-        'https://via.placeholder.com/400x300?text=Image+1',
-        'https://via.placeholder.com/400x300?text=Image+2',
-        'https://via.placeholder.com/400x300?text=Image+3',
-        'https://via.placeholder.com/400x300?text=Image+4',
-        'https://via.placeholder.com/400x300?text=Image+5',
-    ];
+    // Local images array
+    const images = [carasoul1, carasoul2, carasoul3, carasoul4, carasoul5, carasoul6];
 
     const moveToNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -80,33 +81,45 @@ function Gallery() {
     useEffect(() => {
         const interval = setInterval(() => {
             moveToNext();
-        }, 3000);
+        }, 5000); // Auto-scroll every 5 seconds
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="gallery">
+        <div className="gallery-container">
             <button className="gallery-arrow left" onClick={moveToPrev}>
                 &#10094; {/* Left arrow */}
             </button>
-            <div className="gallery-images">
+            <div className="gallery-content">
                 {images.map((image, index) => (
-                    <img
+                    <div
                         key={index}
-                        src={image}
-                        alt={`Gallery Image ${index + 1}`}
-                        className={`gallery-image ${
+                        className={`gallery-slide ${
                             index === currentIndex ? 'active' : 'inactive'
                         }`}
-                    />
+                    >
+                        <img src={image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
+                    </div>
                 ))}
             </div>
             <button className="gallery-arrow right" onClick={moveToNext}>
-                &#10095; {}
+                &#10095; {/* Right arrow */}
             </button>
+            <div className="gallery-dots">
+                {images.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`dot ${index === currentIndex ? 'active' : ''}`}
+                        onClick={() => setCurrentIndex(index)}
+                    ></span>
+                ))}
+            </div>
         </div>
     );
 }
+
+
+
 
 function ContactSection() {
     return (
