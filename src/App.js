@@ -7,6 +7,13 @@ import carasoul3 from './images/carasoul3.JPEG';
 import carasoul4 from './images/carasoul4.JPEG';
 import carasoul5 from './images/carasoul5.JPG';
 import carasoul6 from './images/carasoul6.JPG';
+import fremontkebob from './images/fremontkebob.png';
+import freshmeatfactory from './images/freshmeatfactory.png';
+import myfinelook from './images/myfinelook.png';
+import qualityautodealership from './images/qualityautodealership.png';
+import skyviewaviation from './images/skyviewaviation.png';
+import thub from './images/thub.png';
+import westvalleydisposal from './images/westvalleydispoal.png';
 
 function StarryBackground() {
     const stars = Array.from({ length: 200 }, (_, i) => (
@@ -67,7 +74,6 @@ function TypewriterCycle({ baseText, words }) {
 function Gallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Local images array
     const images = [carasoul1, carasoul2, carasoul3, carasoul4, carasoul5, carasoul6];
 
     const moveToNext = () => {
@@ -81,29 +87,27 @@ function Gallery() {
     useEffect(() => {
         const interval = setInterval(() => {
             moveToNext();
-        }, 5000); // Auto-scroll every 5 seconds
+        }, 5000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <div className="gallery-container">
             <button className="gallery-arrow left" onClick={moveToPrev}>
-                &#10094; {/* Left arrow */}
+                &#10094;
             </button>
             <div className="gallery-content">
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className={`gallery-slide ${
-                            index === currentIndex ? 'active' : 'inactive'
-                        }`}
+                        className={`gallery-slide ${index === currentIndex ? 'active' : 'inactive'}`}
                     >
                         <img src={image} alt={`Gallery Image ${index + 1}`} className="gallery-image" />
                     </div>
                 ))}
             </div>
             <button className="gallery-arrow right" onClick={moveToNext}>
-                &#10095; {/* Right arrow */}
+                &#10095;
             </button>
             <div className="gallery-dots">
                 {images.map((_, index) => (
@@ -118,8 +122,22 @@ function Gallery() {
     );
 }
 
+function MultiLogoCarousel() {
+    const logos = [skyviewaviation, freshmeatfactory, myfinelook, qualityautodealership, fremontkebob, thub, westvalleydisposal, fremontkebob, thub, skyviewaviation, myfinelook];
 
-
+    return (
+        <div className="logos">
+            <div className="logos-slide">
+                {logos.map((logo, index) => (
+                    <img src={logo} alt={`Logo ${index + 1}`} key={index} />
+                ))}
+                {logos.map((logo, index) => (
+                    <img src={logo} alt={`Logo Duplicate ${index + 1}`} key={`duplicate-${index}`} />
+                ))}
+            </div>
+        </div>
+    );
+}
 
 function ContactSection() {
     return (
@@ -138,13 +156,23 @@ function App() {
         });
     };
 
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://server.fillout.com/embed/v1/';
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
     return (
         <div className="App">
-            <StarryBackground /> {}
-
+            <StarryBackground />
             <header className="App-header">
                 <div className="header-content">
-                    <img src={logo} alt="PM Events Logo" className="logo" draggable={"false"}/>
+                    <img src={logo} alt="PM Events Logo" className="logo" draggable={"false"} />
                     <nav className="menu-bar">
                         <button onClick={() => scrollToSection('events')}>Events</button>
                         <button onClick={() => scrollToSection('tournaments')}>Tournaments</button>
@@ -164,13 +192,27 @@ function App() {
                 </div>
             </div>
 
-            
+            <section id="logo-carousel" className="section">
+                <MultiLogoCarousel />
+            </section>
 
             <section id="events" className="section">Events Section</section>
-            <section id="tournaments" className="section">Tournaments Section</section>
+
+            <section id="tournaments" className="section">
+                <h2>Tournaments</h2>
+                <div
+                    style={{ width: '100%', height: '500px' }}
+                    data-fillout-id="qhzk5QLXFHus"
+                    data-fillout-embed-type="standard"
+                    data-fillout-inherit-parameters
+                    data-fillout-dynamic-resize
+                ></div>
+            </section>
+
             <section id="gallery" className="section">
                 <Gallery />
             </section>
+
             <section id="about-us" className="section">About Us Section</section>
             <ContactSection />
         </div>

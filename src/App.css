@@ -302,3 +302,37 @@ body, html, #root, .App {
 .contact-button:active {
   transform: scale(0.95); 
 }
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logos-slide {
+  display: flex;
+  animation: slide 35s linear infinite;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+  flex-shrink: 0; /* Prevents images from shrinking */
+}
+
+/* Seamless duplication */
+.logos-slide-duplicate {
+  display: flex;
+}
