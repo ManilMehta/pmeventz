@@ -148,10 +148,12 @@ body, html, #root, .App {
 }
 
 .section {
-  padding: 100px 20px;
-  min-height: 100vh;
-  margin-top: 70px;
+  padding: 50px 20px; /* Reduced padding to make sections less tall */
+  margin: 0 auto; /* Remove extra margin */
+  min-height: auto; /* Prevent fixed minimum height if not needed */
+  box-sizing: border-box; /* Ensures padding is included in the total height/width */
 }
+
 
 .gallery-container {
   display: flex;
@@ -335,4 +337,60 @@ body, html, #root, .App {
 /* Seamless duplication */
 .logos-slide-duplicate {
   display: flex;
+}
+
+.tournaments-section {
+  text-align: left;
+  color: #fff;
+  padding: 15px;
+  background-color: transparent;
+  padding-top: 75px;
+  padding-bottom: 120px;
+}
+
+.tournaments-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  font-weight: bold;
+}
+
+.tournament-content {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tournament-details {
+  max-width: auto;
+  font-size: 20px;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tournament-details strong {
+  font-size: 20px;
+}
+
+.tournament-flyer {
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.tournament-flyer img {
+  width: 120%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.register-button {
+  text-align: center;
 }

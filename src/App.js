@@ -14,6 +14,7 @@ import qualityautodealership from './images/qualityautodealership.png';
 import skyviewaviation from './images/skyviewaviation.png';
 import thub from './images/thub.png';
 import westvalleydisposal from './images/westvalleydispoal.png';
+import flyer from './images/flyer.png'; 
 
 function StarryBackground() {
     const stars = Array.from({ length: 200 }, (_, i) => (
@@ -174,7 +175,6 @@ function App() {
                 <div className="header-content">
                     <img src={logo} alt="PM Events Logo" className="logo" draggable={"false"} />
                     <nav className="menu-bar">
-                        <button onClick={() => scrollToSection('events')}>Events</button>
                         <button onClick={() => scrollToSection('tournaments')}>Tournaments</button>
                         <button onClick={() => scrollToSection('gallery')}>Gallery</button>
                         <button onClick={() => scrollToSection('about-us')}>About Us</button>
@@ -196,17 +196,39 @@ function App() {
                 <MultiLogoCarousel />
             </section>
 
-            <section id="events" className="section">Events Section</section>
-
-            <section id="tournaments" className="section">
-                <h2>Tournaments</h2>
-                <div
-                    style={{ width: '100%', height: '500px' }}
-                    data-fillout-id="qhzk5QLXFHus"
-                    data-fillout-embed-type="standard"
-                    data-fillout-inherit-parameters
-                    data-fillout-dynamic-resize
-                ></div>
+            {/* Updated Tournaments Section */}
+            <section id="tournaments" className="section tournaments-section">
+                <h2>Upcoming Tournament!</h2>
+                <div className="tournament-content">
+                    <div className="tournament-details">
+                        <p>
+                            Indoor Volleyball Tournament - January 19th, 2025 <br />
+                            @MHHS - Large and Small Gym <br />
+                            $200 entry per team, Max 8 per team.
+                        </p>
+                        <p>
+                            <strong>Cash Prizes + Trophies:</strong> <br />
+                            Advanced - 1st: $1250, 2nd: $750 <br />
+                            Beginner - 1st: $650, 2nd: $350
+                        </p>
+                        <p>
+                            Come out and enjoy the various food vendors! Water will be provided for all teams.
+                        </p>
+                        <div
+                            data-fillout-id="qhzk5QLXFHus"
+                            data-fillout-embed-type="popup"
+                            data-fillout-button-text="Register Now"
+                            data-fillout-dynamic-resize
+                            data-fillout-button-color="#FCCF0A"
+                            data-fillout-button-size="medium"
+                            data-fillout-popup-size="medium"
+                            className="register-button"
+                        ></div>
+                    </div>
+                    <div className="tournament-flyer">
+                        <img src={flyer} alt="Tournament Flyer" />
+                    </div>
+                </div>
             </section>
 
             <section id="gallery" className="section">
