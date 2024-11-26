@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/pmeventz/static/css/main.29eff31b.css",
+    "main.js": "/pmeventz/static/js/main.e78a2a83.js",
+    "static/js/453.4814780c.chunk.js": "/pmeventz/static/js/453.4814780c.chunk.js",
+    "static/media/carasoul5.JPG": "/pmeventz/static/media/carasoul5.a6586f8bfa33561fb09b.JPG",
+    "static/media/carasoul6.JPG": "/pmeventz/static/media/carasoul6.2b7505abe654f2f66718.JPG",
+    "static/media/carasoul1.JPEG": "/pmeventz/static/media/carasoul1.e0ac23992061a79547a0.JPEG",
+    "static/media/carasoul2.JPEG": "/pmeventz/static/media/carasoul2.fa9c9a7f956cdc7b89bb.JPEG",
+    "static/media/carasoul4.JPEG": "/pmeventz/static/media/carasoul4.53797fa6b441d83265bb.JPEG",
+    "static/media/carasoul3.JPEG": "/pmeventz/static/media/carasoul3.ca2a3d6e36de309fbe0d.JPEG",
+    "static/media/flyer.png": "/pmeventz/static/media/flyer.e84c53b8ad24061a54c6.png",
+    "static/media/freshmeatfactory.png": "/pmeventz/static/media/freshmeatfactory.405b34ce7fdda00dbbf7.png",
+    "static/media/fremontkebob.png": "/pmeventz/static/media/fremontkebob.0512a03ab73a23a8b0a1.png",
+    "static/media/skyviewaviation.png": "/pmeventz/static/media/skyviewaviation.3d6561bf7d5560abe4dc.png",
+    "static/media/thub.png": "/pmeventz/static/media/thub.7a6e34c45049ff974085.png",
+    "static/media/westvalleydispoal.png": "/pmeventz/static/media/westvalleydispoal.8653d403616c5d54696b.png",
+    "static/media/qualityautodealership.png": "/pmeventz/static/media/qualityautodealership.312560516b72ac68ed53.png",
+    "static/media/myfinelook.png": "/pmeventz/static/media/myfinelook.1c40d957b7794bd8f159.png",
+    "static/media/pmevents.svg": "/pmeventz/static/media/pmevents.821747a60e7d018e71c25c4272adbdbf.svg",
+    "index.html": "/pmeventz/index.html",
+    "main.29eff31b.css.map": "/pmeventz/static/css/main.29eff31b.css.map",
+    "main.e78a2a83.js.map": "/pmeventz/static/js/main.e78a2a83.js.map",
+    "453.4814780c.chunk.js.map": "/pmeventz/static/js/453.4814780c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29eff31b.css",
+    "static/js/main.e78a2a83.js"
+  ]
+}
